@@ -1,0 +1,18 @@
+.edit-user_input-wrapper {
+    position: relative;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+    input {
+        &::placeholder {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+
+.edit-user_small-input {
+    display: flex;
+    flex-grow: 1;
+}

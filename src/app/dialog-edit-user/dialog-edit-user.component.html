@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Add user!</h1>
-<div mat-dialog-content class="add-user_input-wrapper">
-    <div class="add-user_small-input">
+<h1 mat-dialog-title>Edit user</h1>
+<div mat-dialog-content class="edit-user_input-wrapper">
+    <div class="edit-user_small-input">
         <mat-form-field class="mr-16" appearance="outline">
             <mat-label>First name</mat-label>
             <input [disabled]="loading" [(ngModel)]="user.firstName" matInput placeholder="Add first name">
@@ -34,7 +34,7 @@
             <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Add street & house nr.">
             <!-- <mat-hint>Last name</mat-hint> -->
         </mat-form-field>
-        <div class="add-user_small-input">
+        <div class="edit-user_small-input">
             <mat-form-field class="mr-16" appearance="outline">
                 <mat-label>Zip code</mat-label>
                 <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Add zip code">
@@ -51,6 +51,6 @@
 </div>
 <div mat-dialog-actions>
     <button (click)="dialogRef.close()" [disabled]="loading" mat-button mat-dialog-close>Cancel</button>
-    <button [disabled]="loading" (click)="saveUser()" mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+    <button [disabled]="loading" (click)="updateUser()" mat-button mat-dialog-close cdkFocusInitial>Ok</button>
 </div>
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>

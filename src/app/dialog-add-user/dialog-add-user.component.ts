@@ -30,7 +30,7 @@ export class DialogAddUserComponent {
       .add(this.user.toJSON())
       .then((result: any) => {
         this.loading = false;
-        this.dialogRef.close();
+        // this.dialogRef.close();
       });
   }
 }

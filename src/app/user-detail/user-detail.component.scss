@@ -1,0 +1,56 @@
+.user_header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: 200px;
+    background-color: aquamarine;
+
+
+    img {
+        margin-right: 28px;
+        margin-bottom: 24px;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    div {
+        padding-left: 28px;
+
+        h2 {
+            // margin-bottom: 0px;
+            font-size: 2rem;
+        }
+
+        h4 {
+            padding-left: 2px;
+        }
+    }
+}
+
+
+.user_more-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+
+mat-card-content {
+    padding: 0px;
+}
+
+
+.mat-mdc-menu-item {
+    min-height: 30px;
+}
+
+.user_delete {
+    span{
+        color: firebrick !important;
+    }
+
+}
