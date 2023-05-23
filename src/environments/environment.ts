@@ -1,10 +1,11 @@
 export const environment = {
     firebase: {
-        projectId: 'simple-crm-3c129',
-        appId: '1:444247258263:web:48de0a7d93fdace49c65d2',
-        storageBucket: 'simple-crm-3c129.appspot.com',
-        apiKey: 'AIzaSyDD2mZUNqMdeubbpA6gpDDcWywaOiXHqtU',
-        authDomain: 'simple-crm-3c129.firebaseapp.com',
-        messagingSenderId: '444247258263',
-    },
+        apiKey: "AIzaSyBcWYB4A-gno2CSc0wllU6wKOfFqs86dg8",
+        authDomain: "simple-cmr.firebaseapp.com",
+        databaseURL: "https://simple-cmr-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "simple-cmr",
+        storageBucket: "simple-cmr.appspot.com",
+        messagingSenderId: "859621883165",
+        appId: "1:859621883165:web:50fbb467509b221383f5f4"
+    }
 };
