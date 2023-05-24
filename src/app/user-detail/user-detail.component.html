@@ -1,10 +1,10 @@
 <mat-card class="user_header">
     <button [matMenuTriggerFor]="userMenu" mat-icon-button class="user_more-icon">
-        <mat-icon>more_vert</mat-icon>
+        <mat-icon>edit</mat-icon>
     </button>
     <mat-menu #userMenu="matMenu" xPosition="before">
         <button (click)="editUserDetails()" mat-menu-item>Edit user</button>
-        <button class="user_delete" mat-menu-item><span>Delete user</span></button>
+        <button (click)="deleteUser()" class="user_delete" mat-menu-item><span>Delete user</span></button>
     </mat-menu>
     <div>
         <h2> {{user.firstName}} {{user.lastName}}</h2>

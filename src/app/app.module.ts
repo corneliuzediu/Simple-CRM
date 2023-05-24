@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,11 +20,12 @@ import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatCardModule} from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { DialogBeforeDeleteComponent } from './dialog-before-delete/dialog-before-delete.component';
 
 
 @NgModule({
@@ -35,7 +35,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     UserComponent,
     DialogAddUserComponent,
     UserDetailComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    DialogBeforeDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,7 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
-    
+
 
 
 

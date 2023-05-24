@@ -5,10 +5,28 @@
             <th>Email</th>
             <th>City</th>
         </tr>
-        <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.userID]">
-            <td>{{user.firstName + ' '}}{{user.lastName}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.city}}</td>
+        <tr *ngFor="let user of allUsers">
+            <td [routerLink]="['/user/' + user.userID]">{{user.firstName + ' '}}{{user.lastName}}</td>
+            <td [routerLink]="['/user/' + user.userID]">{{user.email}}</td>
+            <td [routerLink]="['/user/' + user.userID]">{{user.city}}</td>
+            <td>
+                <button [matMenuTriggerFor]="userMenu" mat-icon-button class="user_more-icon">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #userMenu="matMenu" xPosition="before">
+                    <button [routerLink]="['/user/' + user.userID]" mat-menu-item>More info</button>
+                    <button (click)="toBeDeleted(user.userID)" class="user_delete" mat-menu-item><span>Delete
+                            user</span></button>
+                </mat-menu>
+            </td>
+            <div [id]="'before_delete_' + user.userID" class="before_delete_wrapper"
+                *ngIf="selectedUserId === user.userID">
+                <span>The following user will pe permanently deleted: <br> {{user.firstName}} {{user.lastName}} </span>
+                <div class="before_delete_answear">
+                    <button (click)="getAnswear('YES', user.userID)">Delete</button>
+                    <button (click)="getAnswear('NO', user.userID)">Keep</button>
+                </div>
+            </div>
         </tr>
     </table>
 </mat-card>
@@ -16,5 +34,5 @@
 <button (click)="openDialog()" class="add-user_btn" mat-fab color="primary"
     aria-label="Example icon button with a delete icon" matTooltip="Add user" matTooltipPosition="above">
     <mat-icon>add</mat-icon>
-    
+
 </button>

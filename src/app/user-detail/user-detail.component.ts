@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/models/user.class';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
@@ -16,6 +16,7 @@ export class UserDetailComponent implements OnInit {
 
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private firestore: AngularFirestore,
     public dialog: MatDialog,
@@ -48,5 +49,16 @@ export class UserDetailComponent implements OnInit {
     const dialog = this.dialog.open(DialogEditUserComponent);
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userID = this.urlID;
+  }
+
+  deleteUser() {
+    this.firestore
+      .collection('users')
+      .doc(this.urlID)
+      .delete()
+      .then(() => {
+        this.router.navigate(['/user']);
+
+      })
   }
 }
