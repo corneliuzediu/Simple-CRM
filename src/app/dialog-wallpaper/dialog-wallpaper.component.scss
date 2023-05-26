@@ -1,0 +1,58 @@
+mat-card {
+    width: 80vw;
+    padding: 25px;
+}
+
+mat-card-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+mat-card-content {
+    p {
+        font-size: 1.2rem;
+        padding-block: 15px;
+    }
+}
+
+.wallpaper_avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+.wallpaper_img_wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px;
+
+    div {
+        max-width: 300px;
+        max-height: 200px;
+        display: flex;
+
+        img {
+            min-width: 150px;
+            object-fit: cover;
+            transition: transform 255ms ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+mat-card-actions {
+    align-self: end;
+}

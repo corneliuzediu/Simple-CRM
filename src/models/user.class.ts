@@ -6,6 +6,9 @@ export class User {
     zipCode: number;
     city: string;
     email: string;
+    imgHeader: string;
+    imgUser: string;
+    notes:string;
 
     constructor(obj?: any) {
         this.firstName = obj ? obj.firstName : '';
@@ -15,6 +18,9 @@ export class User {
         this.zipCode = obj ? obj.zipCode : '';
         this.city = obj ? obj.city : '';
         this.email = obj ? obj.email : '';
+        this.notes = obj ? obj.notes : '';
+        this.imgHeader = obj ? obj.imgHeader : './assets/img/wallpaperIMG/header_img.jpg';
+        this.imgUser = obj ? obj.imgUser : './assets/img/userIMG/user.png';
     }
 
 
@@ -26,7 +32,10 @@ export class User {
             street: this.street,
             zipCode: this.zipCode,
             city: this.city,
-            email: this.email
+            email: this.email,
+            notes: this.notes,
+            imgHeader:this.imgHeader,
+            imgUser:this.imgUser
         }
     }
 }

@@ -26,7 +26,12 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { DialogBeforeDeleteComponent } from './dialog-before-delete/dialog-before-delete.component';
-
+import { MatSortModule } from '@angular/material/sort';
+import { DialogWallpaperComponent } from './dialog-wallpaper/dialog-wallpaper.component';
+import { DialogIconComponent } from './dialog-icon/dialog-icon.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProductComponent } from './product/product.component';
+import { DialogAddProductComponent } from './dialog-add-product/dialog-add-product.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,11 @@ import { DialogBeforeDeleteComponent } from './dialog-before-delete/dialog-befor
     DialogAddUserComponent,
     UserDetailComponent,
     DialogEditUserComponent,
-    DialogBeforeDeleteComponent
+    DialogBeforeDeleteComponent,
+    DialogWallpaperComponent,
+    DialogIconComponent,
+    ProductComponent,
+    DialogAddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +67,8 @@ import { DialogBeforeDeleteComponent } from './dialog-before-delete/dialog-befor
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
+    MatSortModule,
+    MatProgressSpinnerModule
 
 
 

@@ -1,17 +1,18 @@
-<mat-card class="user_header">
+<mat-card class="user_header" style="background-image: url({{user.imgHeader}});background-repeat: no-repeat;
+background-size: cover;">
     <button [matMenuTriggerFor]="userMenu" mat-icon-button class="user_more-icon">
         <mat-icon>edit</mat-icon>
     </button>
     <mat-menu #userMenu="matMenu" xPosition="before">
         <button (click)="editUserDetails()" mat-menu-item>Edit user</button>
-        <button (click)="deleteUser()" class="user_delete" mat-menu-item><span>Delete user</span></button>
+        <button (click)="changeImgHeader()" mat-menu-item>Edit Wallpaper</button>
+        <button (click)="openDeleteUserDialog()" class="user_delete" mat-menu-item><span>Delete user</span></button>
     </mat-menu>
-    <div>
+    <div class="user_header_name">
         <h2> {{user.firstName}} {{user.lastName}}</h2>
         <h4> {{user.email}}</h4>
-
     </div>
-    <img src="./assets/img/user.png">
+    <img (click)="changeImgUser()" src="{{user.imgUser}}">
 </mat-card>
 <mat-card class="mt-32 p-16 user_body">
     <mat-card-title>{{user.street}}</mat-card-title>
@@ -19,3 +20,12 @@
         <p>{{user.zipCode}} {{user.city}}</p>
     </mat-card-content>
 </mat-card>
+<mat-form-field class="mt-16">
+    <span>Notes about {{user.firstName}} {{user.lastName}}</span>
+    <textarea [(ngModel)]="user.notes" matInput placeholder="Ex. It makes me feel..."></textarea>
+    <button (click)="saveNotes()" [disabled]="loading" mat-button>
+        <mat-icon *ngIf="!loading">save_alt</mat-icon>
+        <mat-icon *ngIf="loading">done</mat-icon>
+        <!-- <mat-spinner *ngIf="loading"></mat-spinner> -->
+    </button>
+</mat-form-field>

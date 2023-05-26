@@ -1,0 +1,20 @@
+<mat-card>
+    <table matSort (matSortChange)="sortData($event)">
+        <tr>
+            <th mat-sort-header="name">Name</th>
+            <th mat-sort-header="price">Price</th>
+            <th mat-sort-header="amount">Amount</th>
+        </tr>
+        <tr *ngFor="let product of sortedData">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.amount}}</td>
+            <td>
+            </td>
+        </tr>
+    </table>
+</mat-card>
+<button (click)="openDialogProduct()" class="add-product_btn" mat-fab color="primary"
+    aria-label="Example icon button with a delete icon" matTooltip="Add Product" matTooltipPosition="right">
+    <mat-icon>add</mat-icon>
+</button>

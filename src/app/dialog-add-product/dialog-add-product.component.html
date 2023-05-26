@@ -1,0 +1,52 @@
+<p>dialog-add-product works!</p>
+<h1 mat-dialog-title>Add user!</h1>
+<div mat-dialog-content class="add-user_input-wrapper">
+    <!-- Product Name & Product Price -->
+    <div class="add-user_small-input">
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input [disabled]="loading" [(ngModel)]="product.name" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input type="number" [disabled]="loading" [(ngModel)]="product.price" matInput>
+        </mat-form-field>
+    </div>
+    <!-- Description -->
+    <div>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input [disabled]="loading" [(ngModel)]="product.description" matInput>
+        </mat-form-field>
+    </div>
+    <!-- Birthdate -->
+    <div>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Availability</mat-label>
+            <input [disabled]="loading" [(ngModel)]="availability" matInput [matDatepicker]="datepicker">
+            <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Amount</mat-label>
+            <input type="number" [disabled]="loading" [(ngModel)]="product.amount" matInput>
+        </mat-form-field>
+    </div>
+    <!-- Address -->
+    <div>
+        <mat-form-field class="mr-16 full-width" appearance="outline">
+            <mat-label>Aquired by:</mat-label>
+            <input [disabled]="loading" [(ngModel)]="product.aquiredBy" matInput>
+            <!-- <mat-hint>Last name</mat-hint> -->
+        </mat-form-field>
+
+    </div>
+
+</div>
+<!-- Buttons -->
+<div mat-dialog-actions>
+    <button (click)="dialogRef.close()" [disabled]="loading" mat-button mat-dialog-close>Cancel</button>
+    <button [disabled]="loading" (click)="saveProduct()" mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>
+<!-- Loading Progress -->
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>

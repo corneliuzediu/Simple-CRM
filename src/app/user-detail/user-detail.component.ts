@@ -4,6 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/models/user.class';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { DialogBeforeDeleteComponent } from '../dialog-before-delete/dialog-before-delete.component';
+import { DialogWallpaperComponent } from '../dialog-wallpaper/dialog-wallpaper.component';
+import { DialogIconComponent } from '../dialog-icon/dialog-icon.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -13,10 +16,10 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 export class UserDetailComponent implements OnInit {
   user: User = new User();
   urlID: string;
+  loading: boolean = false;
 
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private firestore: AngularFirestore,
     public dialog: MatDialog,
@@ -27,7 +30,6 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
       this.urlID = paramMap.get('id')
-      console.log(this.urlID);
       this.getUser();
 
     })
@@ -51,14 +53,35 @@ export class UserDetailComponent implements OnInit {
     dialog.componentInstance.userID = this.urlID;
   }
 
-  deleteUser() {
+
+  changeImgHeader() {
+    const dialog = this.dialog.open(DialogWallpaperComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userID = this.urlID;
+  }
+
+
+  changeImgUser() {
+    const dialog = this.dialog.open(DialogIconComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userID = this.urlID;
+  }
+
+
+  openDeleteUserDialog() {
+    const dialog = this.dialog.open(DialogBeforeDeleteComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userID = this.urlID;
+  }
+
+  saveNotes() {
+    this.loading = true
     this.firestore
       .collection('users')
       .doc(this.urlID)
-      .delete()
+      .update(this.user.toJSON())
       .then(() => {
-        this.router.navigate(['/user']);
-
+        setTimeout(() => { this.loading = false }, 255);
       })
   }
 }

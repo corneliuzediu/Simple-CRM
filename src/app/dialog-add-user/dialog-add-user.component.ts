@@ -24,7 +24,6 @@ export class DialogAddUserComponent {
     this.loading = true;
     if (this.birthDate != undefined)
       this.user.birthDate = this.birthDate.getTime();
-    // console.log(this.user)
 
     this.firestore
       .collection('users')
