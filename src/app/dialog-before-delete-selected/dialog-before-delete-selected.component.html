@@ -1,0 +1,12 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>You are about to delete your selected customers:</mat-card-title>
+        <mat-card-subtitle *ngFor=" let user  of userSelectedJSON">{{user.firstName}}
+            {{user.lastName}} <br></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+        <button (click)="getAnswear('YES')" mat-button>Delete</button>
+        <button (click)="getAnswear('NO')" mat-button>Keep</button>
+    </mat-card-actions>
+</mat-card>
+

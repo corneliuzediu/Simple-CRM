@@ -1,14 +1,29 @@
 <mat-card>
     <table matSort (matSortChange)="sortData($event)">
         <tr>
+            <th>
+                <mat-checkbox (ngModelChange)="selectAll()" [(ngModel)]="allSelected"
+                    *ngIf="allUsers.length"></mat-checkbox>
+            </th>
             <th mat-sort-header="name">Name</th>
             <th mat-sort-header="email">Email</th>
             <th mat-sort-header="city">City</th>
+            <th mat-sort-header="amount">Nr. Products</th>
+            <th>
+                <button mat-icon-button class="user_more-icon" [disabled]="!allowDelete"
+                    (click)="openDeleteSelectedDialog()">
+                    <mat-icon *ngIf="allowDelete">delete</mat-icon>
+                </button>
+            </th>
         </tr>
-        <tr *ngFor="let user of allUsers">
+        <tr *ngFor="let user of sortedData">
+            <td>
+                <mat-checkbox (ngModelChange)="updateSelect(user)" [(ngModel)]="user.select"></mat-checkbox>
+            </td>
             <td [routerLink]="['/user/' + user.userID]">{{user.firstName + ' '}}{{user.lastName}}</td>
             <td [routerLink]="['/user/' + user.userID]">{{user.email}}</td>
             <td [routerLink]="['/user/' + user.userID]">{{user.city}}</td>
+            <td [routerLink]="['/user/' + user.userID]">{{user.products.length}}</td>
             <td>
                 <button [matMenuTriggerFor]="userMenu" mat-icon-button class="user_more-icon">
                     <mat-icon>more_vert</mat-icon>

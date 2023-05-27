@@ -1,0 +1,15 @@
+<mat-card *ngFor="let product of allProducts">
+    <mat-card-header>
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{product.proce}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <span>{{product.description}}</span>
+        <span>{{product.availability}}</span>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="addProductToCustomer(product)" class="add-user_btn" mat-fab color="primary" matTooltip="Add user" matTooltipPosition="above">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

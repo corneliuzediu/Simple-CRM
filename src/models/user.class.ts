@@ -1,3 +1,5 @@
+import { Product } from "./product.class";
+
 export class User {
     firstName: string;
     lastName: string;
@@ -8,7 +10,9 @@ export class User {
     email: string;
     imgHeader: string;
     imgUser: string;
-    notes:string;
+    notes: string;
+    select: boolean;
+    products: Product[];
 
     constructor(obj?: any) {
         this.firstName = obj ? obj.firstName : '';
@@ -18,9 +22,11 @@ export class User {
         this.zipCode = obj ? obj.zipCode : '';
         this.city = obj ? obj.city : '';
         this.email = obj ? obj.email : '';
-        this.notes = obj ? obj.notes : '';
         this.imgHeader = obj ? obj.imgHeader : './assets/img/wallpaperIMG/header_img.jpg';
         this.imgUser = obj ? obj.imgUser : './assets/img/userIMG/user.png';
+        this.notes = obj ? obj.notes : '';
+        this.select = obj ? obj.select : false;
+        this.products = obj ? obj.products : [];
     }
 
 
@@ -33,9 +39,11 @@ export class User {
             zipCode: this.zipCode,
             city: this.city,
             email: this.email,
+            imgHeader: this.imgHeader,
+            imgUser: this.imgUser,
             notes: this.notes,
-            imgHeader:this.imgHeader,
-            imgUser:this.imgUser
+            select: this.select,
+            products: this.products,
         }
     }
 }

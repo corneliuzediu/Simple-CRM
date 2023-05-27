@@ -32,6 +32,9 @@ import { DialogIconComponent } from './dialog-icon/dialog-icon.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProductComponent } from './product/product.component';
 import { DialogAddProductComponent } from './dialog-add-product/dialog-add-product.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { DialogBeforeDeleteSelectedComponent } from './dialog-before-delete-selected/dialog-before-delete-selected.component';
+import { DialogAddProductCustomerComponent } from './dialog-add-product-customer/dialog-add-product-customer.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { DialogAddProductComponent } from './dialog-add-product/dialog-add-produ
     DialogWallpaperComponent,
     DialogIconComponent,
     ProductComponent,
-    DialogAddProductComponent
+    DialogAddProductComponent,
+    DialogBeforeDeleteSelectedComponent,
+    DialogAddProductCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -68,9 +73,8 @@ import { DialogAddProductComponent } from './dialog-add-product/dialog-add-produ
     MatCardModule,
     MatMenuModule,
     MatSortModule,
-    MatProgressSpinnerModule
-
-
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
 
 
   ],

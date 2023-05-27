@@ -32,6 +32,11 @@ table {
 
         &:first-child {
             padding-left: 16px;
+            width: 48px;
+        }
+        &:last-child {
+            padding-right: 16px;
+            width: 48px;
         }
     }
 
@@ -52,6 +57,7 @@ table {
 
             &:first-child {
                 padding-left: 16px;
+                width: 48px;
             }
 
             &:last-child {

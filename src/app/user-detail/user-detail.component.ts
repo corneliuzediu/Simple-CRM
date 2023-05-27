@@ -7,6 +7,7 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 import { DialogBeforeDeleteComponent } from '../dialog-before-delete/dialog-before-delete.component';
 import { DialogWallpaperComponent } from '../dialog-wallpaper/dialog-wallpaper.component';
 import { DialogIconComponent } from '../dialog-icon/dialog-icon.component';
+import { DialogAddProductCustomerComponent } from '../dialog-add-product-customer/dialog-add-product-customer.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -17,6 +18,7 @@ export class UserDetailComponent implements OnInit {
   user: User = new User();
   urlID: string;
   loading: boolean = false;
+  products: string;
 
 
   constructor(
@@ -24,7 +26,8 @@ export class UserDetailComponent implements OnInit {
     private firestore: AngularFirestore,
     public dialog: MatDialog,
 
-  ) { }
+  ) {
+  }
 
 
   ngOnInit(): void {
@@ -44,6 +47,15 @@ export class UserDetailComponent implements OnInit {
       .subscribe((user: any) => {
         this.user = new User(user);
       })
+  }
+
+  getProducts() {
+    // this.firestore
+    //   .collection('products')
+    //   .
+    //   .subscribe((product: any) => {
+    //     this.products
+    //   })
   }
 
 
@@ -83,5 +95,11 @@ export class UserDetailComponent implements OnInit {
       .then(() => {
         setTimeout(() => { this.loading = false }, 255);
       })
+  }
+
+  openAddProduct() {
+    const dialog = this.dialog.open(DialogAddProductCustomerComponent);
+    dialog.componentInstance.user = this.user;
+    dialog.componentInstance.userID = this.urlID;
   }
 }
